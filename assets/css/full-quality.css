@@ -1,0 +1,7 @@
+/* Full effects on phones and desktop. No lite-mode visual overrides. */
+swarm-run{font:inherit;line-height:inherit;letter-spacing:inherit;color:inherit}
+.swarm-word{font:inherit;line-height:inherit;letter-spacing:inherit;white-space:nowrap;vertical-align:baseline;transition:none}
+/* The inline display set by the renderer also keeps testimonial-name tokens
+   out of the original span/flex selectors. */
+.quote figcaption swarm-word{writing-mode:horizontal-tb}
+@media(prefers-reduced-motion:reduce){.grain{animation:none!important}.swarm-word{opacity:1!important;clip-path:none!important}}

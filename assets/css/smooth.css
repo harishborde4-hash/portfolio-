@@ -1,0 +1,13 @@
+/* Performance revision; original v5 layout and theme retained. */
+.about__photo{aspect-ratio:3 / 2}
+.about__photo img{object-fit:cover;object-position:50% 43%;filter:saturate(.82) contrast(1.04) brightness(.95)}
+.about__photo:hover img{filter:saturate(.95) contrast(1.04) brightness(.98)}
+.swarm-replay{display:none!important}
+.grain{animation:grainShift 8s steps(6) infinite}
+/* Smaller original pointer; builder cursors are separately scaled in canvas. */
+.cursor__ring{width:23px;height:23px}
+.cursor__dot{width:3px;height:3px}
+.cursor.is-hover .cursor__ring{width:32px;height:32px}
+.cursor.is-label .cursor__ring{width:34px;height:34px}
+.cursor__label{display:none}
+.motion-paused{animation-play-state:paused!important}

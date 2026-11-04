@@ -1,0 +1,20 @@
+/* Opacity, NOT clipping, while waiting: clipped-away elements do not intersect
+   the viewport and therefore cannot reliably trigger IntersectionObserver. */
+.swarm-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:900;contain:strict}
+.swarm-pending{opacity:0!important;transition:none!important}
+.swarm-pending.swarm-building{opacity:1!important;clip-path:none!important}
+.swarm-replay{position:fixed;right:20px;bottom:88px;z-index:901;border:1px solid #d4c39770;background:#10110ff0;color:#f1e5bf;border-radius:30px;padding:11px 16px;font:11px monospace;letter-spacing:.04em;cursor:pointer;backdrop-filter:blur(12px)}
+.swarm-replay:hover,.swarm-replay:focus-visible{background:#e9dbb5;color:#141414;outline:2px solid #e9dbb5;outline-offset:3px}
+@media(max-width:600px){.swarm-replay{right:12px;bottom:100px;padding:9px 12px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.swarm-canvas,.swarm-replay{display:none}.swarm-pending{opacity:1!important;clip-path:none!important}}
+@media print{.swarm-canvas,.swarm-replay{display:none}.swarm-pending{opacity:1!important;clip-path:none!important}}
+
+.swarm-word{white-space:nowrap}
+.swarm-letter{transition:opacity 65ms linear}
+.swarm-image{clip-path:inset(0 var(--image-cut,100%) 0 0);will-change:clip-path}
+@media(prefers-reduced-motion:reduce){.swarm-letter{opacity:1!important;transition:none}.swarm-image{clip-path:none!important}}
+
+.swarm-enabled .loader{display:none!important}
+.swarm-pending.swarm-building.swarm-structure{opacity:var(--structure-progress,0)!important}
+.swarm-enabled:not(.swarm-active) .swarm-first-paint{visibility:visible}
+.swarm-active .swarm-first-paint{display:none}

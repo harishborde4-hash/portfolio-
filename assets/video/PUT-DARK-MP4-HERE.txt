@@ -1,0 +1,11 @@
+Put your video in THIS folder and name it exactly:
+
+dark.mp4
+
+Final path: assets/video/dark.mp4
+
+Do not create another subfolder. Do not name it dark.mp4.mp4.
+Recommended: H.264 MP4, short 720p clip, no audio track.
+No HTML edits needed. Keep the existing portrait: it is the fallback.
+Refresh/redeploy after adding the video. If replacing an existing hosted video,
+a hard refresh may be needed because browsers can cache the previous file.
