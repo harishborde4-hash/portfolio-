@@ -1,0 +1,22 @@
+/* A light rendering path for phones; the desktop v5 styling is unchanged. */
+.mobile-picture{display:contents}
+@media(pointer:coarse),(max-width:780px){
+ .grain,.spotlight,.hero__field,.cursor{display:none!important}
+ .topbar,.dock,.dock__inner,.chip,.quote,.pcard__link,.btn--ghost,.menu,.menuBtn,.case__thumb,.lightbox{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ .dock__inner{background:#11110ff5}
+ .menu{background:#080808fc}
+ .hero__media,.hero__row,.hero__inner,[data-parallax]{transform:none!important;will-change:auto!important}
+ .hero__inner{opacity:1!important}
+ .hero__media img,.about__photo img,.about__stripTrack img,.pcard__media img,.tile img,.cta__row img{filter:none!important}
+ .hero__media img{opacity:.9}
+ .ticker__track,.about__stripTrack,.cta__row,.hero__arrow,.dot{animation:none!important;will-change:auto!important}
+ .marquee__row,.quotes__bg span{transform:none!important;will-change:auto!important}
+ .reveal{transition:opacity .2s linear!important;transform:none!important;transition-delay:0s!important}
+ .js .reveal.is-in{transform:none!important}
+ .pcard__link,.tile,.quote,.btn,.about__photo img{transition:none!important;box-shadow:none!important;will-change:auto!important}
+ .swarm-pending.swarm-building{will-change:auto}
+ .swarm-word{transition:opacity .08s linear;display:inline}
+ .swarm-image{will-change:clip-path}
+ .signature-intro{transition:opacity .3s linear,visibility .3s}
+ ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+}
