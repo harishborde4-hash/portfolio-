@@ -1,0 +1,24 @@
+/* Same animated film-grain treatment without a live SVG turbulence filter.
+   Six-percent overscan is enough for the existing three-percent movement. */
+.grain{inset:-6%;background-image:url('../img/grain-fast.png');background-size:200px 200px;will-change:transform}
+.case__thumb{left:0!important;top:0!important}
+/* Avoid hundreds of forced individual compositor layers for word lighting. */
+[data-split="words"] .word{will-change:auto}
+
+/* The same hero grayscale/contrast/brightness look, pre-rendered at full resolution. */
+.hero__media img{filter:none}
+@media(max-width:780px){.hero__field{display:block}}
+/* Composite the fine grain normally instead of blending another full-screen
+   offscreen surface on every scroll frame. Texture and movement remain. */
+.grain{mix-blend-mode:normal;opacity:.035}
+.hero__field{mix-blend-mode:normal}
+.cursor{mix-blend-mode:normal}
+.cursor__ring{box-shadow:0 0 0 .5px #050505}
+/* Native-resolution static vector strips, moved by the compositor. */
+.hero__wave{animation:heroWaveTravel linear infinite;will-change:transform;pointer-events:none}
+.hero__wave svg{display:block;max-width:none}
+@keyframes heroWaveTravel{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-1 * var(--wave-period)),0,0)}}
+@media(prefers-reduced-motion:reduce){.hero__wave{animation:none}}
+/* Scroll-driven transforms must not restart a one-second entrance tween
+   on every tiny wheel movement. Opacity entrance still animates normally. */
+.reveal[data-parallax]{transition-property:opacity,border-color,box-shadow}

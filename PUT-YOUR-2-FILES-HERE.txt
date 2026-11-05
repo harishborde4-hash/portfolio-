@@ -1,0 +1,41 @@
+YOUR TWO FILES GO HERE:
+
+assets/3d-work/cassette-gallery/cassette-gallery.js
+assets/3d-work/cassette-gallery/three.module.js
+
+They are already included, exactly as you uploaded them. You can replace them
+with your own copies. Keep these exact filenames and do not delete the index.html
+beside them. No JavaScript editing is needed for this cassette project.
+
+Folder layout:
+assets/
+  3d-work/
+    cassette-gallery/
+      index.html           <-- ready-made viewer; keep this file
+      cassette-gallery.js  <-- put your first file here
+      three.module.js      <-- put your second file here
+
+HOW IT WORKS
+Archive > 3D Work: the card shows your real running scene in a live preview.
+Click the card: a dedicated page runs the same viewer, with drag/wheel controls
+and up/down buttons. There is no dropdown or image-only preview.
+
+HOW TO TEST
+Upload the ENTIRE site folder to your web host.
+OR run this command from the site folder:
+  python3 -m http.server 3000
+Then open:
+  http://localhost:3000/archive.html
+Choose 3D Work and click Cassette gallery.
+
+Do not double-click the HTML file. Browser ES modules require HTTP hosting.
+
+DIRECT VIEWER (also works on its own through HTTP):
+  assets/3d-work/cassette-gallery/index.html
+
+FUTURE PROJECTS
+Duplicate this folder for another project. Its index.html must start that
+project's scene using its own module API. Add a new entry with a unique ID in
+assets/js/three-works.js; its src points to that project's index.html.
+Other unrelated JavaScript/model files are not automatically compatible with
+this cassette-specific wrapper.

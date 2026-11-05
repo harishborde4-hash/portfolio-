@@ -1,0 +1,21 @@
+/* Minimal v5 patch: signature opening and layout-safe testimonial typing. */
+.signature-intro{display:none;position:fixed;inset:0;z-index:10000;background:#050505;color:#f0e5c4;visibility:visible;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+.signature-opening .signature-intro{display:flex}.signature-intro.signature-exit{display:flex;opacity:0;visibility:hidden;pointer-events:none}
+.signature-mark{display:flex;align-items:center;justify-content:center;gap:0;transform:translateY(-8px);max-width:92vw}
+.signature-face{font-family:var(--font-sans,Arial),sans-serif;font-size:95px;font-weight:800;line-height:1.3;letter-spacing:-13px;padding-right:10px;position:relative;z-index:3;background:#050505;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .6s}
+.show-face .signature-face{opacity:1;transform:translateY(0)}
+.signature-name-mask{display:block;overflow:hidden;width:0;height:150px;opacity:0;margin-left:0;transition:width 1s cubic-bezier(.19,1,.22,1),opacity .5s,margin-left 1s}
+.signature-name{font-family:var(--font-sans,Arial),sans-serif;font-size:125px;font-weight:800;line-height:1.12;letter-spacing:-8px;white-space:nowrap;display:block;transform:translateX(-100%);transition:transform 1s cubic-bezier(.19,1,.22,1)}
+.show-name .signature-name-mask{width:325px;opacity:1;margin-left:25px}.show-name .signature-name{transform:translateX(0)}
+.signature-skip{position:absolute;right:28px;bottom:24px;border:1px solid #f0e5c430;background:none;color:#b1a991;font:10px var(--font-mono,monospace);padding:9px 13px;cursor:pointer}
+.signature-opening{overflow:hidden}.signature-opening body{visibility:hidden;overflow:hidden}.signature-opening .signature-intro{visibility:visible}.signature-opening .swarm-canvas,.signature-opening .swarm-replay{visibility:hidden}
+/* Custom typing tags do not match the portfolio's span layout selectors. */
+swarm-run,swarm-word,swarm-letter{font:inherit;line-height:inherit;letter-spacing:inherit;color:inherit}
+.quote figcaption{flex-direction:row;align-items:center;flex-wrap:nowrap}
+.quote figcaption > .avatar{flex:0 0 auto}
+.quote figcaption > span:last-child{min-width:0;display:flex;flex-direction:column;gap:3px}
+.quote figcaption b{display:block;white-space:nowrap;word-break:normal;overflow-wrap:normal;writing-mode:horizontal-tb}
+.quote figcaption i{display:block;word-break:normal;overflow-wrap:normal;writing-mode:horizontal-tb}
+.quote figcaption swarm-run,.quote figcaption swarm-word,.quote figcaption swarm-letter{display:inline;flex:none;writing-mode:horizontal-tb}
+@media(max-width:600px){.signature-face{font-size:57px;letter-spacing:-8px;padding-right:6px}.signature-name{font-size:74px;letter-spacing:-5px}.signature-name-mask{height:92px}.show-name .signature-name-mask{width:195px;margin-left:17px}.signature-skip{right:18px;bottom:20px;font-size:8px;padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.signature-intro{display:none!important}.signature-opening{overflow:auto}.signature-opening body{visibility:visible;overflow:auto}}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cassette gallery</title><style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#090909;color:#eee5c8;font-family:monospace}#cassette{position:absolute;inset:0}canvas{display:block;width:100%;height:100%}#message{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:25px;line-height:1.8;font-size:12px;pointer-events:none}#message[hidden]{display:none}#browse{position:absolute;right:12px;bottom:12px;display:flex;gap:8px}button{background:#111d;color:#eee5c8;border:1px solid #555;border-radius:6px;padding:12px 17px;font:12px monospace;cursor:pointer}.preview #browse{display:none}
+</style></head><body>
+<div id="cassette" aria-label="Interactive cassette gallery"></div>
+<div id="message" role="status">Loading 3D work…</div>
+<div id="browse" aria-label="Browse cassette stack"><button type="button" id="previous" aria-label="Browse previous cassette">↑</button><button type="button" id="next" aria-label="Browse next cassette">↓</button></div>
+<script src="./cassette-gallery.bundle.js"></script>
+<script>
+// Classic (non-module) script: works when the site is opened straight from disk (file://) or on any host.
+const root=document.getElementById('cassette'),message=document.getElementById('message');
+if(new URLSearchParams(location.search).has('preview'))document.documentElement.classList.add('preview');
+try{
+ window.cassetteWork=window.createCassetteGallery(root);
+ message.hidden=true;
+ document.getElementById('previous').onclick=()=>root.dispatchEvent(new WheelEvent('wheel',{deltaY:-175,cancelable:true}));
+ document.getElementById('next').onclick=()=>root.dispatchEvent(new WheelEvent('wheel',{deltaY:175,cancelable:true}));
+}catch(error){
+ message.textContent='Could not start the gallery. Check WebGL/hardware acceleration. Details: '+error.message;
+ console.warn('Cassette viewer:',error);
+}
+</script></body></html>

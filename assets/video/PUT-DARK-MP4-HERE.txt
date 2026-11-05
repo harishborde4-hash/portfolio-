@@ -1,0 +1,12 @@
+Put your video in THIS folder (assets/video/). Recommended name: dark.mp4
+
+The site also accepts these names, so a Windows "hidden extension" mistake still works:
+  dark.mp4   dark.mp4.mp4   dark.MP4   dark.webm   dark.mov   dark.m4v
+
+The first one that exists and can be played is shown in the About photo
+(muted, looping). If none plays, the photo stays.
+
+Best format: H.264 MP4. Phone/screen-recorder files are often H.265 (HEVC),
+which Chrome/Firefox cannot play. Convert with:
+  ffmpeg -i input.mp4 -c:v libx264 -profile:v high -pix_fmt yuv420p -an -movflags +faststart -vf scale=-2:720 dark.mp4
+After adding the file, hard refresh (Ctrl+F5).

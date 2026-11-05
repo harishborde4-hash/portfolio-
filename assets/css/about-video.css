@@ -1,0 +1,7 @@
+/* Keep the existing v5 frame and cursor-reveal classes. */
+.about__photo{position:relative}
+.about__photo .about__video{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 43%}
+.about__photo .about__video-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 43%;pointer-events:none}
+.about__photo.video-ready .about__video-fallback{visibility:hidden}
+.about__photo .about__video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;padding:12px 18px;border:1px solid rgba(240,229,196,.5);border-radius:999px;background:rgba(5,5,5,.85);color:#f0e5c4;font:12px var(--font-mono,monospace);cursor:pointer}
+.about__photo .about__video-play[hidden]{display:none}
